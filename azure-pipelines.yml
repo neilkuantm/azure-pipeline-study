@@ -15,19 +15,6 @@ jobs:
       image: 'ghcr.io/neilkuantm/azure-pipeline-custom-container-terraform:latest'
     steps:
       - script: |
-           echo "Azure Login"
-           az az login --service-principal -u $(ARM_CLIENT_ID) \
-           -p $(ARM_CLIENT_SECRET) \
-           --tenant $(ARM_TENANT_ID)
-           
-           echo "Set Subscriptions"
-           az account set --subscription "RDSec_Study"
-
-           echo "Show Account"
-           az account show
-           echo "Show Terraform Version"
-           terraform -version
-
            echo "Terraform Init"
            terraform init
 
