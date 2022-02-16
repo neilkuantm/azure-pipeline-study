@@ -4,10 +4,13 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+- group: study_var
+
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: $[ variablegroups.study_var.STUDY_SUBSCRIPTION_ID ]
+    azureSubscription: $(STUDY_SUBSCRIPTION_ID)
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
