@@ -2,25 +2,16 @@ trigger:
   - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-18.04'
 
 variables:
 - group: study_var
 
-steps:
-- task: AzureCLI@2
-  displayName: Azure CLI
-  inputs:
-    azureSubscription: $(STUDY_SUBSCRIPTION_ID)
-    scriptType: bash
-    scriptLocation: inlineScript
-    inlineScript: |
-      az --version
-      az account show
-
-- task: CmdLine@2
-  inputs:
-    script: |
-      echo "hello azure pipeline"
-      az account show 
-      echo $(System.DefaultWorkingDirectory)
+jobs:
+  - job: Hello_Terraform
+    timeoutInMinutes: 0
+    container:
+      image: 'hashicorp/terraform'
+    steps:
+      - script: |
+           terraform -version
