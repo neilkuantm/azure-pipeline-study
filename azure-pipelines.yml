@@ -16,3 +16,4 @@ jobs:
     steps:
       - script: |
            terraform -version
+           ls -aR
