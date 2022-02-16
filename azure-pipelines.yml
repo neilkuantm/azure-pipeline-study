@@ -1,1 +1,16 @@
+trigger:
+  - main
 
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: $(STUDY_SUBSCRIPTION_ID)
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      echo "hello azure pipeline"
+      az account show 
+      echo $(System.DefaultWorkingDirectory)
