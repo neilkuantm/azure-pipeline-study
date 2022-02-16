@@ -11,8 +11,8 @@ jobs:
   - job: Hello_Terraform
     timeoutInMinutes: 0
     container:
-      image: 'hashicorp/terraform'
-      options: --entrypoint=""
+      image: 'ghcr.io/neilkuantm/azure-pipeline-custom-container-terraform:latest'
+      options: --entrypoint="sh"
     steps:
       - script: |
            terraform -version
