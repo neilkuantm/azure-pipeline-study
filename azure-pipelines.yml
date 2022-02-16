@@ -24,7 +24,7 @@ jobs:
            az account set --subscription "RDSec_Study"
 
            echo "Show Account"
-           azure account show
+           az account show
            echo "Show Terraform Version"
            terraform -version
 
