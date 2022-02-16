@@ -12,6 +12,7 @@ jobs:
     timeoutInMinutes: 0
     container:
       image: 'hashicorp/terraform'
+      endpoint: ""
     steps:
       - script: |
            terraform -version
