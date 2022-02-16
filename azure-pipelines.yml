@@ -8,6 +8,16 @@ variables:
 - group: study_var
 
 steps:
+- task: AzureCLI@2
+  displayName: Azure CLI
+  inputs:
+    azureSubscription: $(STUDY_SUBSCRIPTION_ID)
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      az --version
+      az account show
+
 - task: CmdLine@2
   inputs:
     script: |
