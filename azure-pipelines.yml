@@ -2,9 +2,6 @@ trigger:
   branches:
     include:
       - main
-  paths:
-    include:
-      - *.tf
 
 pool:
   vmImage: 'ubuntu-18.04'
