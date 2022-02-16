@@ -12,8 +12,8 @@ jobs:
     timeoutInMinutes: 0
     container:
       image: 'ghcr.io/neilkuantm/azure-pipeline-custom-container-terraform:latest'
-      #options: --entrypoint="sh"
     steps:
       - script: |
            terraform -version
+           pwd
            ls -aR
