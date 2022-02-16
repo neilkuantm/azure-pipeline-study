@@ -15,7 +15,6 @@ jobs:
       image: 'ghcr.io/neilkuantm/azure-pipeline-custom-container-terraform:latest'
     steps:
       - script: |
-           export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/user/.local/bin/
            echo "Terraform Init"
            terraform init
 
