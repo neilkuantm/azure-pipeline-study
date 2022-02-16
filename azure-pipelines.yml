@@ -12,7 +12,7 @@ jobs:
     timeoutInMinutes: 0
     container:
       image: 'hashicorp/terraform'
-      endpoint: ""
+      options: --entrypoint=""
     steps:
       - script: |
            terraform -version
