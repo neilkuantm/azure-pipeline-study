@@ -17,8 +17,8 @@ jobs:
       - script: |
            echo "Azure Login"
            az cloud set --name AzureCloud
-           
-           az az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
+
+           az az login --service-principal -u $ARM_CLIENT_ID -p $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID
            
            echo "Set Subscriptions"
            az account set --subscription "RDSec_Study"
@@ -33,3 +33,7 @@ jobs:
            
            echo "Terraform Apply"
            terraform apply  -auto-approve
+        env: 
+          ARM_CLIENT_ID: $(ARM_CLIENT_ID)
+          ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+          ARM_TENANT_ID: $(ARM_TENANT_ID)
