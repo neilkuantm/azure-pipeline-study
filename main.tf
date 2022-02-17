@@ -34,7 +34,7 @@ module "linuxservers" {
   vm_os_simple        = "UbuntuServer"
   public_ip_dns       = ["linsimplevmips"] // change to a unique name per datacenter region
   vnet_subnet_id      = module.network.vnet_subnets[0]
-
+  enable_ssh_key      = false
   depends_on = [azurerm_resource_group.demo_terraform_rg]
 }
 
