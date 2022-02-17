@@ -19,6 +19,12 @@ resource "azurerm_resource_group" "demo_terraform_rg" {
   location = "Japan East"
 }
 
+resource "random_password" "password" {
+  length           = 12
+  special          = true
+  override_special = "_%@"
+}
+
 module "network" {
   source              = "Azure/network/azurerm"
   resource_group_name = azurerm_resource_group.demo_terraform_rg.name
@@ -36,8 +42,14 @@ module "linuxservers" {
   vnet_subnet_id      = module.network.vnet_subnets[0]
   enable_ssh_key      = false
   depends_on = [azurerm_resource_group.demo_terraform_rg]
+  admin_password      = random_password.password.result
 }
 
 output "linux_vm_public_name" {
   value = module.linuxservers.public_ip_dns_name
+}
+
+output "random_password" {
+  value = random_password.password.result
+  sensitive = true
 }
